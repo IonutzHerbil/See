@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Modes in Directions</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'map/style.css' %}" />
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-logo">SEE App</div>
+        <ul class="navbar-links">
+            <li><a href="{% url 'post-list' %}">Back to Feed</a></li>
+        </ul>
+    </nav>
+
+    <div id="floating-panel">
+        <div>
+            <input type="text" id="from" placeholder="From">
+        </div> 
+        <div>
+            <input type="text" id="to" placeholder="To">
+        </div>
+        <b>Mode of travel</b>
+        <select id="mode" class="styled-select">
+            <option value="DRIVING">Driving</option>
+            <option value="WALKING">Walking</option>
+            <option value="BICYCLING">Bicycling</option>
+            <option value="TRANSIT">Transit</option>
+        </select>
+        <button id="calculate-route">Show Route</button>
+    </div>
+
+    <div id="map"></div>
+
+    <script 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu5P9jVGRQXH8pSKm1SK3VZpBmk1IgXRI&libraries=places&callback=initMap" 
+    async 
+    defer>
+    </script>
+
+    <script src="{% static 'map/scripts.js' %}"></script>
+</body>
+</html>
